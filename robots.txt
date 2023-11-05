@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://ycyoon.github.io/al-folio/sitemap.xml
