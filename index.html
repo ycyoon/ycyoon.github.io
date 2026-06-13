@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yeo-Chan Yoon — Associate Professor, Jeju National University</title>
+  <meta name="description" content="Yeo-Chan Yoon (윤여찬), Associate Professor of Artificial Intelligence at Jeju National University. Research in Natural Language Processing, Multimodal Deep Learning, and Large Language Models." />
+  <meta name="author" content="Yeo-Chan Yoon" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Yeo-Chan Yoon — Associate Professor, Jeju National University" />
+  <meta property="og:description" content="Research in Natural Language Processing, Multimodal Deep Learning, and Large Language Models." />
+  <meta property="og:image" content="assets/profile.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>" />
+</head>
+<body>
+  <!-- ===== NAV ===== -->
+  <header class="nav" id="top">
+    <div class="nav__inner">
+      <a class="nav__brand" href="#top">Yeo-Chan&nbsp;Yoon</a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+        <span class="theme-toggle__icon">◐</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="about">
+      <div class="hero__photo">
+        <img src="assets/profile.jpg" alt="Portrait of Yeo-Chan Yoon" width="700" height="900" />
+      </div>
+      <div class="hero__body">
+        <p class="hero__eyebrow">Associate Professor · Department of Artificial Intelligence</p>
+        <h1 class="hero__name">Yeo-Chan Yoon</h1>
+        <p class="hero__sub">윤여찬 · Jeju National University, Republic of Korea</p>
+        <p class="hero__bio">
+          I lead research at the intersection of <strong>Natural Language Processing</strong>,
+          <strong>Multimodal Deep Learning</strong>, and <strong>Large Language Models</strong>.
+          Before joining Jeju National University, I spent 15 years as a Principal Researcher at
+          ETRI. My recent work spans conversational recommendation, aspect-based sentiment analysis,
+          instruction alignment, and robust multimodal emotion recognition.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#publications">View Publications</a>
+          <a class="btn" href="mailto:ycyoon@jejunu.ac.kr">Email Me</a>
+        </div>
+        <ul class="hero__meta">
+          <li><span>📍</span> Jeju-si, Jeju-do, Korea</li>
+          <li><span>✉️</span> <a href="mailto:ycyoon@jejunu.ac.kr">ycyoon@jejunu.ac.kr</a></li>
+          <li><span>☎️</span> +82-64-754-3781</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== NOTICE / RECRUITING ===== -->
+    <section class="notice" aria-label="Recruiting notice">
+      <div class="notice__inner">
+        <span class="notice__tag">Now Recruiting</span>
+        <p>
+          Seeking motivated students interested in <strong>NLP</strong> and <strong>Deep Learning</strong>
+          for <strong>Ph.D.</strong> and <strong>Integrated Ph.D.–Master's</strong> programs.
+          <a href="mailto:ycyoon@jejunu.ac.kr?subject=Prospective%20Student%20Inquiry">Get in touch&nbsp;→</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="stats" aria-label="At a glance">
+      <div class="stats__item"><strong>21</strong><span>Peer-reviewed papers</span></div>
+      <div class="stats__item"><strong>Q1</strong><span>Top-tier journals</span></div>
+      <div class="stats__item"><strong>15+</strong><span>Years in AI research</span></div>
+      <div class="stats__item"><strong>3</strong><span>Core research areas</span></div>
+    </section>
+
+    <!-- ===== RESEARCH INTERESTS ===== -->
+    <section class="section" id="research">
+      <h2 class="section__title">Research Interests</h2>
+      <div class="cards">
+        <article class="card">
+          <div class="card__icon">💬</div>
+          <h3>Natural Language Processing</h3>
+          <p>Conversational recommendation, sentiment analysis, dependency parsing, document clustering, and instruction alignment for language models.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon">🎛️</div>
+          <h3>Multimodal Deep Learning</h3>
+          <p>Cross-modal translation, visual dialog, image captioning, and emotion recognition that fuses voice, text, and vision.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon">🧠</div>
+          <h3>Large Language Models</h3>
+          <p>Retrieval-augmented generation, collaborative embedding-infused LLMs, and robust, role-aware transformer architectures.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== PUBLICATIONS ===== -->
+    <section class="section" id="publications">
+      <h2 class="section__title">Selected Publications</h2>
+      <p class="section__lead">
+        <span class="legend"><span class="corr">★</span> First / corresponding author</span>
+      </p>
+
+      <div class="pub-filters" role="tablist" aria-label="Filter publications">
+        <button class="chip is-active" data-filter="all">All</button>
+        <button class="chip" data-filter="scie">SCI / SCIE</button>
+        <button class="chip" data-filter="scopus">SCOPUS</button>
+        <button class="chip" data-filter="kci">KCI</button>
+      </div>
+
+      <ol class="pubs">
+        <!-- 2026 -->
+        <li class="pub" data-type="scie">
+          <span class="pub__year">2026</span>
+          <div class="pub__body">
+            <p class="pub__title"><span class="corr">★</span> CEILLM: Confidence-Aware Dynamic Fusion of Collaborative Embedding-Infused Large Language Models for Conversational Recommendation</p>
+            <p class="pub__authors"><strong>Yeo-Chan Yoon*</strong>, Chanjun Park, JaeChoon Jo</p>
+            <p class="pub__venue"><em>ACM Transactions on Information Systems</em>, Accepted (2026)</p>
+            <p class="pub__tags"><span class="tag tag--hot">Q1 · Top 5% · IF 9.2</span></p>
+          </div>
+        </li>
+        <li class="pub" data-type="scie">
+          <span class="pub__year">2026</span>
+          <div class="pub__body">
+            <p class="pub__title"><span class="corr">★</span> Sentiment Hypergraphs with Hierarchical Reasoning: A Novel Framework for Advanced Aspect-Based Sentiment Analysis</p>
+            <p class="pub__authors">A. P. Anilkumar, <strong>Yeo-Chan Yoon*</strong>, Kyu-Hyung Kim, Dae-Heon Park, Ki-Duck Kim</p>
+            <p class="pub__venue"><em>IEEE Transactions on Affective Computing</em>, Accepted (2026)</p>
+            <p class="pub__tags"><span class="tag tag--hot">Q1 · Top 5% · IF 9.8</span><span class="tag">SCIE</span></p>
+          </div>
+        </li>
+        <li class="pub" data-type="scie">
+          <span class="pub__year">2026</span>
+          <div class="pub__body">
+            <p class="pub__title"><span class="corr">★</span> Adaptive Orthogonal Role-Aware Transformer for Robust Instruction Alignment</p>
+            <p class="pub__authors"><strong>Yeo-Chan Yoon*</strong>, Sookyun Kim, Gyeongmin Kim</p>
+            <p class="pub__venue"><em>ETRI Journal</em>, Accepted (2026)</p>
+            <p class="pub__tags"><span class="tag">SCIE</span></p>
+          </div>
+        </li>
+        <li class="pub" data-type="scie">
+          <span class="pub__year">2026</span>
+          <div class="pub__body">
+            <p class="pub__title"><span class="corr">★</span> Multi-Relational Dual Attention Graph Transformer for Fine-Grained Sentiment Analysis</p>
+            <p class="pub__authors">A. P. Anilkumar, Soo Kyun Kim, <strong>Yeo-Chan Yoon*</strong></p>
+            <p class="pub__venue"><em>Scientific Reports</em> 16, 7236 (2026)</p>
+            <p class="pub__tags"><span class="tag tag--hot">Q1</span><span class="tag">SCIE</span></p>
+          </div>
+        </li>
+
+        <!-- 2025 -->
+        <li class="pub" data-type="scie">
+          <span class="pub__year">2025</span>
+          <div class="pub__body">
+            <p class="pub__title"><span class="corr">★</span> MASKSER: A Robust Emotion Recognition Model Based on Voice Data and Noisy Transcripts</p>
+            <p class="pub__authors"><strong>Yeo-Chan Yoon*</strong>, Sookyun Kim</p>
+            <p class="pub__venue"><em>IEEE Transactions on Audio, Speech and Language Processing</em>, 32, 4154–4167 (2025)</p>
+            <p class="pub__tags"><span class="tag tag--hot">Q1 · Top 10%</span><span class="tag">SCIE</span></p>
+          </div>
+        </li>
+        <li class="pub" data-type="kci">
+          <span class="pub__year">2025</span>
+          <div class="pub__body">
+            <p class="pub__title"><span class="corr">★</span>Trends and Prospects of Retrieval-Augmented Generation (RAG) for Generative AI</p>
+            <p class="pub__authors"><strong>Yeo-Chan Yoon</strong>, Soo Kyun Kim</p>
+            <p class="pub__venue">Journal of the Korean Association of Computer Education, 28(2), 69–80 (2025)</p>
+            <p class="pub__tags"><span class="tag">KCI</span></p>
+          </div>
+        </li>
+
+        <!-- 2024 -->
+        <li class="pub" data-type="kci">
+          <span class="pub__year">2024</span>
+          <div class="pub__body">
+            <p class="pub__title"><span class="corr">★</span>Performance Comparison of Concentration Prediction Models by Dataset Frame Length</p>
+            <p class="pub__authors">Dong-Wook Kim, Soo Kyun Kim, <strong>Yeo-Chan Yoon</strong></p>
+            <p class="pub__venue">Journal of the Korean Association of Computer Education, 27(1), 215–226 (2024)</p>
+            <p class="pub__tags"><span class="tag">KCI</span></p>
+          </div>
+        </li>
+
+        <!-- 2023 -->
+        <li class="pub" data-type="scie">
+          <span class="pub__year">2023</span>
+          <div class="pub__body">
+            <p class="pub__title">Improved Open World Object Detection Using Class-Wise Feature Space Learning</p>
+            <p class="pub__authors">M. A. Iqbal, <strong>Yeo-Chan Yoon</strong>, M. U. Khan, Soo Kyun Kim</p>
+            <p class="pub__venue"><em>IEEE Access</em>, 11, 131221–131236 (2023)</p>
+            <p class="pub__tags"><span class="tag">SCIE</span></p>
+          </div>
+        </li>
+        <li class="pub" data-type="scie">
+          <span class="pub__year">2023</span>
+          <div class="pub__body">
+            <p class="pub__title">Enhancing Facial Reconstruction Using Graph Attention Networks</p>
+            <p class="pub__authors">H. G. Lee, J. S. Hur, <strong>Yeo-Chan Yoon</strong>, Soo Kyun Kim</p>
+            <p class="pub__venue"><em>IEEE Access</em>, 11, 136680–136691 (2023)</p>
+            <p class="pub__tags"><span class="tag">SCIE</span></p>
+          </div>
+        </li>
+        <li class="pub" data-type="scie">
+          <span class="pub__year">2023</span>
+          <div class="pub__body">
+            <p class="pub__title"><span class="corr">★</span>Gated Multi-Channel Network Embedding for Large-Scale Mobile App Clustering</p>
+            <p class="pub__authors"><strong>Yeo-Chan Yoon</strong>, Soo Kyun Kim</p>
+            <p class="pub__venue"><em>KSII Transactions on Internet &amp; Information Systems</em>, 17(6) (2023)</p>
+            <p class="pub__tags"><span class="tag">SCIE</span></p>
+          </div>
+        </li>
+        <li class="pub" data-type="scie">
+          <span class="pub__year">2023</span>
+          <div class="pub__body">
+            <p class="pub__title">3D Face Reconstruction from a Single Image Using a Combined PCA-LPP Method</p>
+            <p class="pub__authors">J. S. Hur, H. G. Lee, Shinjin Kang, <strong>Yeo-Chan Yoon</strong>, Soo Kyun Kim</p>
+            <p class="pub__venue"><em>Computers, Materials &amp; Continua</em>, 74(3) (2023)</p>
+            <p class="pub__tags"><span class="tag">SCIE</span></p>
+          </div>
+        </li>
+        <li class="pub" data-type="scopus">
+          <span class="pub__year">2023</span>
+          <div class="pub__body">
+            <p class="pub__title"><span class="corr">★</span>Remote Heart Rate Estimation Using Attention-Targeted Self-Supervised Learning Methods</p>
+            <p class="pub__authors">Jaechoon Jo, <strong>Yeo-Chan Yoon</strong></p>
+            <p class="pub__venue"><em>International Journal on Advanced Science, Engineering &amp; Information Technology</em>, 13(3) (2023)</p>
+            <p class="pub__tags"><span class="tag">SCOPUS</span></p>
+          </div>
+        </li>
+        <li class="pub" data-type="kci">
+          <span class="pub__year">2023</span>
+          <div class="pub__body">
+            <p class="pub__title"><span class="corr">★</span> Attention-Based Heart Rate Estimation Using MobileNet V3</p>
+            <p class="pub__authors"><strong>Yeo-Chan Yoon</strong></p>
+            <p class="pub__venue">Journal of the Korea Society of Computer and Information, 28(12), 1–7 (2023)</p>
+            <p class="pub__tags"><span class="tag">KCI</span></p>
+          </div>
+        </li>
+        <li class="pub" data-type="kci">
+          <span class="pub__year">2023</span>
+          <div class="pub__body">
+            <p class="pub__title">CNN Architecture Optimization for Improved Accuracy of Artwork Artist Classification</p>
+            <p class="pub__authors">Ji-Sun Park, So-Yeon Kim, <strong>Yeo-Chan Yoon</strong>, Soo Kyun Kim</p>
+            <p class="pub__venue">Journal of the Korea Society of Computer and Information, 28(9), 9–15 (2023)</p>
+            <p class="pub__tags"><span class="tag">KCI</span></p>
+          </div>
+        </li>
+
+        <!-- 2022 -->
+        <li class="pub" data-type="scie">
+          <span class="pub__year">2022</span>
+          <div class="pub__body">
+            <p class="pub__title"><span class="corr">★</span> Can We Exploit All Datasets? Multimodal Emotion Recognition Using Cross-Modal Translation</p>
+            <p class="pub__authors"><strong>Yeo-Chan Yoon</strong></p>
+            <p class="pub__venue"><em>IEEE Access</em>, 10, 64516–64524 (2022)</p>
+            <p class="pub__tags"><span class="tag">SCIE</span></p>
+          </div>
+        </li>
+        <li class="pub" data-type="kci">
+          <span class="pub__year">2022</span>
+          <div class="pub__body">
+            <p class="pub__title"><span class="corr">★</span>Automatic Facial Expression Recognition via Self-Supervised Learning of Facial Image Sequence Prediction</p>
+            <p class="pub__authors"><strong>Yeo-Chan Yoon</strong>, Soo Kyun Kim</p>
+            <p class="pub__venue">Journal of the Korea Society of Computer and Information, 27(9), 41–47 (2022)</p>
+            <p class="pub__tags"><span class="tag">KCI</span></p>
+          </div>
+        </li>
+
+        <!-- 2021 -->
+        <li class="pub" data-type="scie">
+          <span class="pub__year">2021</span>
+          <div class="pub__body">
+            <p class="pub__title">Multi-View Attention Network for Visual Dialog</p>
+            <p class="pub__authors">Sungjin Park, Taesun Whang, <strong>Yeo-Chan Yoon</strong>, Heuiseok Lim</p>
+            <p class="pub__venue"><em>Applied Sciences</em>, 11(7), 3009 (2021)</p>
+            <p class="pub__tags"><span class="tag">SCIE</span></p>
+          </div>
+        </li>
+
+        <!-- 2020 -->
+        <li class="pub" data-type="scie">
+          <span class="pub__year">2020</span>
+          <div class="pub__body">
+            <p class="pub__title"><span class="corr">★</span> Image Classification and Captioning Model Considering a CAM-Based Disagreement Loss</p>
+            <p class="pub__authors"><strong>Yeo-Chan Yoon</strong>, So-Young Park, Sun-Mee Park, Heuiseok Lim</p>
+            <p class="pub__venue"><em>ETRI Journal</em>, 42(1), 67–77 (2020)</p>
+            <p class="pub__tags"><span class="tag">SCIE</span></p>
+          </div>
+        </li>
+
+        <!-- 2019 -->
+        <li class="pub" data-type="scie">
+          <span class="pub__year">2019</span>
+          <div class="pub__body">
+            <p class="pub__title"><span class="corr">★</span> Network-Based Document Clustering Using External Ranking Loss for Network Embedding</p>
+            <p class="pub__authors"><strong>Yeo-Chan Yoon</strong>, Hyung Kuen Gee, Heuiseok Lim</p>
+            <p class="pub__venue"><em>IEEE Access</em>, 7, 155412–155423 (2019)</p>
+            <p class="pub__tags"><span class="tag">SCIE</span></p>
+          </div>
+        </li>
+        <li class="pub" data-type="scopus">
+          <span class="pub__year">2019</span>
+          <div class="pub__body">
+            <p class="pub__title">Deep Learning-Based End-to-End Dependency Parsing without POS Tagging</p>
+            <p class="pub__authors">Ji-un Jeon, Do-Heon Choi, So-Young Park, <strong>Yeo-Chan Yoon</strong></p>
+            <p class="pub__venue">International Research Publication House (2019)</p>
+            <p class="pub__tags"><span class="tag">SCOPUS</span></p>
+          </div>
+        </li>
+
+        <!-- 2017 -->
+        <li class="pub" data-type="scie">
+          <span class="pub__year">2017</span>
+          <div class="pub__body">
+            <p class="pub__title"><span class="corr">★</span> Fine-Grained Mobile Application Clustering Model Using Retrofitted Document Embedding</p>
+            <p class="pub__authors"><strong>Yeo-Chan Yoon</strong>, Jihee Lee, So-Young Park, Changki Lee</p>
+            <p class="pub__venue"><em>ETRI Journal</em>, 39(4), 443–454 (2017)</p>
+            <p class="pub__tags"><span class="tag">SCI</span></p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===== EDUCATION & EXPERIENCE ===== -->
+    <section class="section" id="experience">
+      <div class="two-col">
+        <div>
+          <h2 class="section__title">Education</h2>
+          <ul class="timeline">
+            <li>
+              <h3>Ph.D., Computer Science &amp; Engineering</h3>
+              <p>Korea University, South Korea</p>
+            </li>
+            <li>
+              <h3>M.S., Computer Science &amp; Engineering</h3>
+              <p>Korea University, South Korea</p>
+            </li>
+            <li>
+              <h3>B.S., Computer Science &amp; Engineering</h3>
+              <p>Korea University, South Korea</p>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="section__title">Experience</h2>
+          <ul class="timeline">
+            <li>
+              <span class="timeline__date">2026 – Present</span>
+              <h3>Associate Professor</h3>
+              <p>Dept. of Artificial Intelligence, Jeju National University</p>
+            </li>
+            <li>
+              <span class="timeline__date">2022 – 2026</span>
+              <h3>Assistant Professor</h3>
+              <p>Dept. of Artificial Intelligence, Jeju National University</p>
+            </li>
+            <li>
+              <span class="timeline__date">2007 – 2022</span>
+              <h3>Principal Researcher</h3>
+              <p>Electronics and Telecommunications Research Institute (ETRI)</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section section--contact" id="contact">
+      <h2 class="section__title">Contact</h2>
+      <div class="contact">
+        <p class="contact__lead">
+          Interested in collaboration, or in joining the lab? I'd be glad to hear from you.
+        </p>
+        <ul class="contact__list">
+          <li><span class="contact__k">Email</span><a href="mailto:ycyoon@jejunu.ac.kr">ycyoon@jejunu.ac.kr</a></li>
+          <li><span class="contact__k">Phone</span><span>+82-64-754-3781</span></li>
+          <li><span class="contact__k">Office</span><span>102 Jejudaehak-ro, Jeju-si, Jeju-do, Republic of Korea</span></li>
+          <li><span class="contact__k">Affiliation</span><span>Dept. of Artificial Intelligence, Jeju National University</span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year">2026</span> Yeo-Chan Yoon · Jeju National University</p>
+    <p class="footer__sub">Built for academic correspondence · <a href="#top">Back to top ↑</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
