@@ -43,5 +43,5 @@ python3 -m http.server 8000
 ## Editing publications
 
 Each publication is an `<li class="pub" data-type="...">` in `index.html`.
-The `data-type` value (`scie`, `scopus`, `kci`) drives the filter buttons.
+The `data-type` value (`conference`, `scie`, `scopus`, `kci`) drives the filter buttons.
 Add the `★` `<span class="corr">` marker for first/corresponding-author papers.
