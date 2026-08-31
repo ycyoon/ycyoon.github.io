@@ -17,21 +17,26 @@ designed to be hosted on **GitHub Pages**.
 
 ## Deploy to GitHub Pages (user site)
 
-For a personal site served at `https://<username>.github.io`:
+This site is published at `https://ycyoon.github.io/` from the **`gh-pages`**
+branch. Keep the source changes in **`main`**, then merge them into `gh-pages`
+when publishing:
 
-1. Create a repository named exactly **`<username>.github.io`** on GitHub.
-2. Push the contents of this folder to the `main` branch:
-   ```bash
-   git init
-   git add .
-   git commit -m "Add personal homepage"
-   git branch -M main
-   git remote add origin git@github.com:<username>/<username>.github.io.git
-   git push -u origin main
-   ```
-3. In the repo, go to **Settings → Pages** and confirm the source is
-   **Deploy from a branch → `main` / root**.
-4. The site goes live at `https://<username>.github.io` within a minute or two.
+```bash
+git switch main
+git add index.html README.md script.js style.css assets
+git commit -m "Update homepage"
+git push origin main
+
+git switch gh-pages
+git merge main --no-edit -X theirs
+git push origin gh-pages
+git switch main
+```
+
+In GitHub, confirm **Settings → Pages** is set to **Deploy from a branch →
+`gh-pages` / root**. Do not use `git add .` if the local `repo/` directory is
+present; it is a separate reference project and is not part of this homepage.
+GitHub Pages may take a few minutes to update after the push.
 
 ## Local preview
 
@@ -43,5 +48,5 @@ python3 -m http.server 8000
 ## Editing publications
 
 Each publication is an `<li class="pub" data-type="...">` in `index.html`.
-The `data-type` value (`scie`, `scopus`, `kci`) drives the filter buttons.
+The `data-type` value (`conference`, `scie`, `scopus`, `kci`) drives the filter buttons.
 Add the `★` `<span class="corr">` marker for first/corresponding-author papers.
