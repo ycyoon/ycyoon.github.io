@@ -1,0 +1,1 @@
+ALTER TABLE `performance_records` ADD `acknowledgement_count` integer DEFAULT 1 NOT NULL;
