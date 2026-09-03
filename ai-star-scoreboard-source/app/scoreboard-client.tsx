@@ -472,7 +472,7 @@ export default function ScoreboardClient({
               ) : null}
             </>
           ) : (
-            <a className="login-button" href={signInPath}>ChatGPT로 로그인</a>
+            <a className="login-button" href={signInPath}>로그인</a>
           )}
         </div>
       </header>
