@@ -16,7 +16,7 @@
 
 // ===== Publication filter =====
 (function () {
-  const chips = document.querySelectorAll(".chip");
+  const chips = document.querySelectorAll(".pub-filters .chip");
   const pubs = document.querySelectorAll(".pub");
 
   chips.forEach(function (chip) {
@@ -30,6 +30,30 @@
         const show = filter === "all" || type === filter;
         pub.classList.toggle("is-hidden", !show);
       });
+    });
+  });
+})();
+
+// ===== Project status filter (independent of publications) =====
+(function () {
+  const buttons = document.querySelectorAll("[data-project-filter]");
+  const projects = document.querySelectorAll(".project");
+  const result = document.getElementById("project-filter-result");
+
+  buttons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      const filter = button.dataset.projectFilter;
+      let visible = 0;
+      buttons.forEach(function (item) {
+        const active = item === button;
+        item.classList.toggle("is-active", active);
+        item.setAttribute("aria-pressed", String(active));
+      });
+      projects.forEach(function (project) {
+        project.hidden = filter !== "all" && project.dataset.status !== filter;
+        if (!project.hidden) visible += 1;
+      });
+      result.textContent = "Showing " + visible + (filter === "all" ? "" : " " + filter) + " projects.";
     });
   });
 })();
