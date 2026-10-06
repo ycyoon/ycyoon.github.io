@@ -307,3 +307,10 @@
     gap: 9px;
   }
 }
+
+.paper-page-header { display:flex; justify-content:space-between; align-items:center; gap:24px; padding:26px 40px; border-bottom:1px solid #dde5e9; background:white; }
+.paper-page-header nav { display:flex; gap:18px; align-items:center; font-size:14px; }
+.paper-page-header nav a { text-decoration:none; }
+.paper-page-content { max-width:1440px; padding:36px 40px 64px; margin:auto; }
+.paper-export-bar { display:flex; align-items:center; gap:14px; margin-top:22px; flex-wrap:wrap; }
+@media (max-width:720px) { .paper-page-header { padding:20px; flex-wrap:wrap; } .paper-page-header nav { flex-wrap:wrap; gap:12px; } .paper-page-content { padding:20px 14px 40px; } }

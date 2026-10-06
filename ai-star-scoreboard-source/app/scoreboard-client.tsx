@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useState } from "react";
 import AccessAdminPanel from "./access-admin-panel";
 import TrainingSection from "./training-section";
-import PaperSharing from "./paper-sharing";
 import { apiFetch } from "../lib/api-client";
 import {
   COUNTED_PAPER_METRICS,
@@ -446,13 +445,14 @@ export default function ScoreboardClient({
         <nav className="main-nav" aria-label="주요 메뉴">
           <a className="active" href="#dashboard">대시보드</a>
           <a href="#other-papers">기타 논문</a>
-          <a href="#papers">논문 공유</a>
+          <a href="/ai-star-scoreboard/papers.html">논문 공유</a>
           <a href="#training">인재양성</a>
           <a href="#records">성과 목록</a>
           <a href="#history">변경 이력</a>
           {isAdmin ? <a href="#access-approval">사용자 승인</a> : null}
         </nav>
         <div className="account-wrap">
+          <a className="paper-mobile-link" href="/ai-star-scoreboard/papers.html">논문 공유</a>
           {user ? (
             <>
               <button
@@ -673,7 +673,6 @@ export default function ScoreboardClient({
           </div>
         </section>
 
-        <PaperSharing userEmail={user?.email ?? ""} isAdmin={isAdmin} records={data.records} />
 
         <TrainingSection
           participants={data.participants}

@@ -27,8 +27,8 @@ https://ycyoon.github.io/ai-star-scoreboard/
 
 ## 논문 공유와 인용 기록
 
-`#papers`에서 제목, 학회·저널명, 저자, 참여 교수, 연도, 키워드, 초록,
-BibTeX와 인용 기록을 관리합니다. 성과 집계와 독립된 공유 목록입니다.
+`/ai-star-scoreboard/papers.html` 독립 페이지에서 제목, 학회·저널명, 저자, 참여 교수, 연도, 키워드, 초록,
+BibTeX와 인용 기록을 관리합니다. 홈 메뉴에서 페이지를 이동하며 기존 `#papers` 링크도 새 페이지로 이동합니다. 성과 집계와 독립된 공유 목록입니다.
 기존 성과의 논문을 선택해 가져와도 실적은 중복 집계되지 않습니다.
 
 기존 `supabase/schema.sql` 적용 후 `supabase/migrations/`의 SQL을 순서대로
@@ -52,3 +52,12 @@ node --experimental-strip-types --test tests/paper-metadata.test.mjs
 설정합니다. 함수 본문은 Supabase Auth `/user`로 토큰을 검증한 뒤 동일한
 토큰으로 가입 승인 상태를 검사합니다. 인증 없는 메타데이터 조회는 허용하지
 않습니다. 출판사 요청은 고정된 HTTPS 호스트만 허용하고 리디렉션을 차단합니다.
+
+전체 데이터 엑셀 내려받기는 논문·인용·변경 이력을 별도 시트로 저장합니다.
+검색 조건과 무관하게 페이지를 나누어 모두 조회하며 삭제 기록도 포함합니다.
+엑셀 생성 코드는 클릭할 때만 로드됩니다. 아래 테스트는 1,001편의 데이터와
+삭제 기록, 한글, 여러 줄 BibTeX, 긴 변경 이력의 보존을 검사합니다.
+
+```bash
+node --experimental-strip-types --test tests/paper-workbook.test.mjs
+```

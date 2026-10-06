@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import AccessRequestClient from "../../app/access-request-client";
+import PapersPage from "./papers-page";
 import ScoreboardClient from "../../app/scoreboard-client";
 import type { AccessStatus } from "../../lib/access";
 import { GITHUB_PAGES_BASE_PATH } from "../../lib/api-client";
@@ -18,8 +19,10 @@ type AppSession = {
   isAdmin: boolean;
 };
 
-const APP_URL = GITHUB_PAGES_BASE_PATH;
-const LOGOUT_URL = `${GITHUB_PAGES_BASE_PATH}?logout=1`;
+const isPapersPage = window.location.pathname.endsWith("/papers.html");
+const APP_URL = isPapersPage ? `${GITHUB_PAGES_BASE_PATH}papers.html` : GITHUB_PAGES_BASE_PATH;
+if (!isPapersPage && window.location.hash === "#papers") window.location.replace(`${GITHUB_PAGES_BASE_PATH}papers.html`);
+const LOGOUT_URL = `${APP_URL}?logout=1`;
 
 function GitHubPagesApp() {
   const [session, setSession] = useState<AppSession | null>(null);
@@ -116,6 +119,8 @@ function GitHubPagesApp() {
       />
     );
   }
+
+  if (isPapersPage) return <PapersPage user={session.user} isAdmin={session.isAdmin} signOutPath={LOGOUT_URL} />;
 
   return (
     <ScoreboardClient

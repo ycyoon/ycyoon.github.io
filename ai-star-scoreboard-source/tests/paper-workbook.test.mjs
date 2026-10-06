@@ -1,0 +1,23 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import ExcelJS from 'exceljs';
+import {createPaperWorkbook} from '../lib/paper-workbook.ts';
+test('XLSX preserves all rows, deleted records, citations, Korean, multiline BibTeX, and literal formulas',async()=>{
+ const bib='@article{test,\n title={한글 논문}\n}';
+ const papers=Array.from({length:1001},(_,i)=>({id:`p${i}`,title:i===0?'=HYPERLINK("https://example.org")':`논문 ${i}`,publication_name:'ACL',bibtex:bib,archived:i===1000}));
+ const history=[{id:1,paper_id:'p1000',action:'deleted',snapshot:{title:'논문 1000',bibtex:bib,notes:'가'.repeat(60001)}}];
+ const bytes=await createPaperWorkbook(papers,[{id:'c1',paper_id:'p1000',citing_title:'인용한 논문',citation_status:'published'}],history);
+ assert.equal(Buffer.from(bytes).subarray(0,2).toString(),'PK');
+ const workbook=new ExcelJS.Workbook();await workbook.xlsx.load(bytes);
+ assert.deepEqual(workbook.worksheets.map(s=>s.name),['공유 논문','인용 기록','변경 이력','내려받기 안내']);
+ const cell=(s,row,label)=>{const sheet=workbook.getWorksheet(s);const col=sheet.getRow(1).values.indexOf(label);assert.ok(col>0,label);return sheet.getRow(row).getCell(col);};
+ assert.equal(workbook.getWorksheet('공유 논문').rowCount,1002);
+ assert.equal(cell('공유 논문',2,'논문 제목').value,papers[0].title);
+ assert.equal(cell('공유 논문',2,'논문 제목').type,ExcelJS.ValueType.String);
+ assert.equal(cell('공유 논문',2,'BibTeX').value,bib);
+ assert.equal(cell('공유 논문',1002,'삭제 여부').value,true);
+ assert.equal(cell('인용 기록',2,'공유 논문 제목').value,'논문 1000');
+ assert.equal(cell('변경 이력',2,'변경 후 · BibTeX').value,bib);
+ assert.equal([1,2,3].map(i=>cell('변경 이력',2,`변경 후 · notes [${i}]`).value).join(''),'가'.repeat(60001));
+});
+test('empty library still downloads usable sheets with headers',async()=>{const bytes=await createPaperWorkbook([],[],[]);const w=new ExcelJS.Workbook();await w.xlsx.load(bytes);assert.equal(w.getWorksheet('공유 논문').rowCount,1);assert.equal(w.getWorksheet('인용 기록').rowCount,1);});

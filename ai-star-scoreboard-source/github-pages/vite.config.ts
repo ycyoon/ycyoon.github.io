@@ -11,6 +11,12 @@ export default defineConfig({
   plugins: [react()],
   publicDir: "public",
   build: {
+    rollupOptions: {
+      input: {
+        main: fileURLToPath(new URL("./index.html", import.meta.url)),
+        papers: fileURLToPath(new URL("./papers.html", import.meta.url)),
+      },
+    },
     outDir: output,
     emptyOutDir: true,
   },

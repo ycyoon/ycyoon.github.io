@@ -83,13 +83,12 @@ function errorMessage(e: unknown) {
     return "입력 길이·연도·링크 또는 삭제된 논문 여부를 확인해 주세요.";
   return err.message || "요청을 처리하지 못했습니다.";
 }
-async function allRows(table: string) {
+async function allRows(table: string, includeArchived = false) {
   const rows: unknown[] = [];
   for (let start = 0; ; start += 500) {
-    const { data, error } = await getSupabaseClient()
-      .from(table)
-      .select("*")
-      .eq("archived", false)
+    let request = getSupabaseClient().from(table).select("*");
+    if (!includeArchived) request = request.eq("archived", false);
+    const { data, error } = await request
       .order("created_at", { ascending: false })
       .order("id")
       .range(start, start + 499);
@@ -146,6 +145,43 @@ export default function PaperSharing({
     id: string;
     label: string;
   } | null>(null);
+  const [exporting, setExporting] = useState(false);
+  async function exportExcel() {
+    setExporting(true);
+    setError("");
+    try {
+      const [p, c, h] = await Promise.all([
+        allRows("shared_papers", true),
+        allRows("paper_citations", true),
+        allRows("paper_activity", true),
+      ]);
+      const { createPaperWorkbook } = await import("../lib/paper-workbook");
+      const buffer = await createPaperWorkbook(
+        p as Record<string, unknown>[],
+        c as Record<string, unknown>[],
+        h as Record<string, unknown>[],
+      );
+      const url = URL.createObjectURL(
+        new Blob([new Uint8Array(buffer)], {
+          type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        }),
+      );
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `AI_Star_논문공유_전체_${today()}.xlsx`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 10000);
+      setMessage(
+        `엑셀을 내려받았습니다. 논문 ${p.length}편 · 인용 ${c.length}건 · 변경 이력 ${h.length}건 (삭제 기록 포함)`,
+      );
+    } catch (e) {
+      setError(errorMessage(e));
+    } finally {
+      setExporting(false);
+    }
+  }
   const canEdit = (p: { created_by_email: string }) =>
     isAdmin || p.created_by_email.toLowerCase() === userEmail.toLowerCase();
   async function load() {
@@ -451,6 +487,20 @@ export default function PaperSharing({
         >
           + 논문 공유하기
         </button>
+      </div>
+      <div className="paper-export-bar">
+        <button
+          type="button"
+          className="secondary-button"
+          disabled={exporting}
+          onClick={() => void exportExcel()}
+        >
+          {exporting ? "엑셀 생성 중…" : "전체 데이터 엑셀 내려받기"}
+        </button>
+        <span className="paper-help">
+          공유 논문 · 인용 기록 · 변경 이력 전체 (삭제 기록 포함, 검색 조건과
+          무관)
+        </span>
       </div>
       <div className="paper-toolbar">
         <input
