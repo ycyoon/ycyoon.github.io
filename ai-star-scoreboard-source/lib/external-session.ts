@@ -108,7 +108,7 @@ async function verifySignature(value: string, signature: Uint8Array) {
   return crypto.subtle.verify(
     "HMAC",
     key,
-    signature,
+    new Uint8Array(signature),
     new TextEncoder().encode(value),
   );
 }

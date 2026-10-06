@@ -1,0 +1,4 @@
+# The project uses ES256 JWTs. Authenticate inside index.ts using Auth /user,
+# then check get_access_context with the same bearer token before any lookup.
+[functions.paper-metadata]
+verify_jwt = false
