@@ -15,7 +15,8 @@ npm run build:github-pages
 ```
 
 빌드 결과는 `dist-github/`에 생성됩니다. 이 결과물을 저장소의
-`ai-star-scoreboard/` 경로에 게시합니다. 전체 소스는
+`gh-pages` 브랜치의 `ai-star-scoreboard/` 경로에 게시합니다.
+다른 홈페이지 파일은 유지하고 이 디렉터리만 교체합니다. 전체 소스는 `main` 브랜치의
 `ai-star-scoreboard-source/` 경로에 함께 게시합니다.
 
 Supabase Auth에는 아래 주소를 Site URL 및 허용 Redirect URL로 등록합니다.
