@@ -136,7 +136,7 @@ h1, h2, h3 { line-height: 1.2; margin: 0; }
 .dot--corr { background: var(--hot); }
 
 /* ===== Cards ===== */
-.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 .card {
   background: var(--bg-elev); border: 1px solid var(--line); border-radius: 16px;
   padding: 26px 24px; box-shadow: var(--shadow); transition: transform .2s ease, border-color .2s ease;
