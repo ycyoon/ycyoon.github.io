@@ -1,22 +1,62 @@
 .paper-sharing {
   scroll-margin-top: 96px;
+  padding: 32px;
+  min-width: 0;
 }
 .paper-sharing .section-heading {
   align-items: center;
-  gap: 18px;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.paper-sharing .section-heading > div {
+  min-width: 0;
+}
+.paper-sharing .section-heading > button {
+  flex-shrink: 0;
+}
+.paper-sharing .section-kicker {
+  font-size: 10px;
+  margin-bottom: 8px;
+}
+.paper-sharing .section-heading h2 {
+  font-size: 24px;
+  line-height: 1.4;
+}
+.paper-sharing .section-heading p {
+  font-size: 13px;
+  line-height: 1.7;
+  margin-top: 8px;
 }
 .paper-sharing button {
   cursor: pointer;
 }
 .paper-sharing button:disabled {
-  cursor: wait;
+  cursor: not-allowed;
   opacity: 0.6;
 }
 .paper-toolbar {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
   gap: 12px;
-  flex-wrap: wrap;
-  margin: 22px 0 12px;
+  margin: 24px 0 16px;
+}
+.paper-toolbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.paper-toolbar-controls select {
+  width: 180px;
+}
+.paper-toolbar input,
+.paper-toolbar select,
+.paper-toolbar button {
+  height: 44px;
+}
+.paper-toolbar button {
+  white-space: nowrap;
 }
 .paper-sharing input,
 .paper-sharing select,
@@ -31,8 +71,8 @@
   min-width: 0;
 }
 .paper-toolbar > input {
-  flex: 1;
-  min-width: 230px;
+  width: 100%;
+  min-width: 0;
 }
 .paper-sharing input:focus,
 .paper-sharing textarea:focus,
@@ -62,10 +102,17 @@
   color: #166d5f;
 }
 .paper-empty {
-  padding: 42px 16px;
+  display: grid;
+  place-items: center;
+  min-height: 160px;
+  margin: 24px 0 0;
+  padding: 40px 24px;
+  border-top: 1px solid #e7edef;
   text-align: center;
   color: #697789;
-  font-size: 15px;
+  font-size: 14px;
+  line-height: 1.9;
+  text-wrap: balance;
 }
 .paper-list {
   margin-top: 24px;
@@ -135,9 +182,30 @@
   margin: 16px 0;
 }
 .paper-sharing .primary-button,
-.paper-sharing .secondary-button {
+.paper-sharing .secondary-button,
+.paper-sharing .text-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   font-size: 13px;
-  min-height: 38px;
+  min-height: 40px;
+  line-height: 1.4;
+}
+.paper-sharing .primary-button,
+.paper-sharing .secondary-button {
+  height: 44px;
+}
+.paper-sharing .secondary-button {
+  padding: 0 16px;
+}
+.paper-sharing > .paper-help {
+  margin: 0;
+}
+.paper-dialog label > input,
+.paper-dialog label > select,
+.paper-dialog label > textarea {
+  width: 100%;
 }
 .paper-details {
   margin-top: 12px;
@@ -269,7 +337,128 @@
 .main-nav {
   flex-wrap: wrap;
 }
+
+.paper-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  min-height: 88px;
+  padding: 20px max(32px, calc((100% - 1280px) / 2));
+  border-bottom: 1px solid #dde5e9;
+  background: white;
+}
+.paper-page-header nav {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  font-size: 14px;
+}
+.paper-page-header nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  height: auto;
+  padding: 10px 16px;
+  line-height: 1.4;
+  font-size: 13px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.paper-page-content {
+  width: min(1280px, calc(100% - 64px));
+  padding: 32px 0 64px;
+  margin: auto;
+}
+.paper-export-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: #f5f8f9;
+  border: 1px solid #e8eef0;
+  border-radius: 10px;
+}
+.paper-export-bar > button {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.paper-export-bar .paper-help {
+  margin: 0;
+}
+@media (max-width: 1000px) {
+  .paper-toolbar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .paper-toolbar-controls {
+    flex-wrap: wrap;
+  }
+  .paper-toolbar-controls select {
+    flex: 1;
+    min-width: 180px;
+  }
+  .paper-export-bar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
 @media (max-width: 720px) {
+  .paper-page-header {
+    padding: 18px 20px;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+  .paper-page-header nav {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .paper-page-header nav a:first-child {
+    margin-right: auto;
+  }
+  .paper-page-content {
+    width: calc(100% - 28px);
+    padding: 20px 0 40px;
+  }
+  .paper-sharing {
+    padding: 22px 18px;
+    border-radius: 14px;
+  }
+  .paper-sharing .section-heading {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 20px;
+  }
+  .paper-sharing .section-heading h2 {
+    font-size: 22px;
+  }
+  .paper-sharing .section-heading > button {
+    align-self: flex-start;
+  }
+  .paper-toolbar-controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .paper-toolbar-controls select {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-width: 0;
+  }
+  .paper-toolbar-controls button {
+    padding: 0 10px;
+  }
+  .paper-export-bar {
+    padding: 14px;
+  }
+  .paper-export-bar > button {
+    max-width: 100%;
+    white-space: normal;
+    height: auto;
+    padding: 10px 12px;
+  }
   .paper-item-top {
     display: block;
   }
@@ -280,15 +469,6 @@
     display: inline-block;
     margin-top: 6px;
   }
-  .paper-sharing .section-heading {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-  .paper-toolbar > input,
-  .paper-toolbar > select {
-    width: 100%;
-    flex: auto;
-  }
   .paper-overlay {
     padding: 10px;
   }
@@ -297,7 +477,7 @@
     max-height: 95dvh;
   }
   .paper-form-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 0;
   }
   .paper-import {
@@ -306,11 +486,8 @@
   .paper-actions {
     gap: 9px;
   }
+  .paper-empty {
+    padding: 32px 4px;
+    min-height: 150px;
+  }
 }
-
-.paper-page-header { display:flex; justify-content:space-between; align-items:center; gap:24px; padding:26px 40px; border-bottom:1px solid #dde5e9; background:white; }
-.paper-page-header nav { display:flex; gap:18px; align-items:center; font-size:14px; }
-.paper-page-header nav a { text-decoration:none; }
-.paper-page-content { max-width:1440px; padding:36px 40px 64px; margin:auto; }
-.paper-export-bar { display:flex; align-items:center; gap:14px; margin-top:22px; flex-wrap:wrap; }
-@media (max-width:720px) { .paper-page-header { padding:20px; flex-wrap:wrap; } .paper-page-header nav { flex-wrap:wrap; gap:12px; } .paper-page-content { padding:20px 14px 40px; } }

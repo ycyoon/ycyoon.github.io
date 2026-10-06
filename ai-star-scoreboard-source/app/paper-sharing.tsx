@@ -513,37 +513,39 @@ export default function PaperSharing({
             setLimit(20);
           }}
         />
-        <select
-          aria-label="참여 교수 필터"
-          value={professor}
-          onChange={(e) => {
-            setProfessor(e.target.value);
-            setLimit(20);
-          }}
-        >
-          <option value="">참여 교수 전체</option>
-          {professorNames.map((p) => (
-            <option key={p}>{p}</option>
-          ))}
-        </select>
-        <button
-          className="secondary-button"
-          disabled={!filtered.length}
-          onClick={() =>
-            bibDownload(
-              filtered
-                .map((p) => p.bibtex)
-                .filter(Boolean)
-                .join("\n\n"),
-              "ai-star-papers.bib",
-            )
-          }
-        >
-          BibTeX 내보내기
-        </button>
-        <button className="text-button" onClick={() => void load()}>
-          새로고침
-        </button>
+        <div className="paper-toolbar-controls">
+          <select
+            aria-label="참여 교수 필터"
+            value={professor}
+            onChange={(e) => {
+              setProfessor(e.target.value);
+              setLimit(20);
+            }}
+          >
+            <option value="">참여 교수 전체</option>
+            {professorNames.map((p) => (
+              <option key={p}>{p}</option>
+            ))}
+          </select>
+          <button
+            className="secondary-button"
+            disabled={!filtered.length}
+            onClick={() =>
+              bibDownload(
+                filtered
+                  .map((p) => p.bibtex)
+                  .filter(Boolean)
+                  .join("\n\n"),
+                "ai-star-papers.bib",
+              )
+            }
+          >
+            BibTeX 내보내기
+          </button>
+          <button className="text-button" onClick={() => void load()}>
+            새로고침
+          </button>
+        </div>
       </div>
       <p className="paper-help">
         공유 {filtered.length}편 · 공유 등록은 성과 점수에 영향을 주지 않습니다.
